@@ -29,7 +29,7 @@ class SinhvienRequest extends FormRequest
             'NgaySinh' => ['required', 'date'],
             'GioiTinh' => ['required', 'in:Nam,Nữ'],
             'DiaChi' => 'required|max:30',
-            'SoDT' => 'required|min:10',
+            'SoDT' => 'required|min:10|unique:sinhviens,SoDT',
         ];
     }
     public function messages()
@@ -46,6 +46,7 @@ class SinhvienRequest extends FormRequest
             'HoTen.required' => 'Họ tên không được để trống',
             'SoDT.required' => 'SDT không được để trống',
             'SoDT.min' => 'SDT không nhỏ hơn :min số',
+            'SoDT.unique' => 'Số điện thoại đã tồn tại trong hệ thống.',
         ];
     }
     public function attributes()
